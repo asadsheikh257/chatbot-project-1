@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://127.0.0.1:8000/chat/"  # Adjust if running FastAPI on a different host
+API_URL = "https://chatbot-project-1-production.up.railway.app/"  # Adjust if running FastAPI on a different host
 
 st.title("Mistral AI Chatbot")
 
