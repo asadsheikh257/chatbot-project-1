@@ -144,9 +144,9 @@ This project is licensed under the **MIT License**.
 
 ## 📩 Contact
 
-🔗 **GitHub**: [Your GitHub Profile](https://github.com/asadsheikh257)\
-📧 **Email**: [asadsheikh257@gmail.com](mailto\:asadsheikh257@gmail.com)\
-💼 **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/asadabbassheikh)
+🔗 **GitHub**: [Asad Abbas Sheikh](https://github.com/asadsheikh257)\
+📧 **Email**: [Asad Abbas Sheikh](mailto\:asadsheikh257@gmail.com)\
+💼 **LinkedIn**: [Asad Abbas](https://linkedin.com/in/asadabbassheikh)
 
 If you like this project, give it a ⭐ and feel free to contribute! 🚀
 
