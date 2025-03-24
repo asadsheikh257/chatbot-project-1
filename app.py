@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import requests
 from fastapi.middleware.cors import CORSMiddleware
+from langchain_groq import ChatGroq
+from langchain.schema import AIMessage, HumanMessage
 
 app = FastAPI()
 
@@ -14,26 +15,27 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Set API Key
+# Set API Key (Make sure to load this securely in production)
 GROQ_API_KEY = "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"
-API_URL = "https://api.groq.com/openai/v1/chat/completions"
+
+# Initialize LangChain Chat Model
+chat_model = ChatGroq(
+    api_key=GROQ_API_KEY,
+    model_name="llama-3.3-70b-versatile"  # Set your preferred model
+)
 
 class ChatRequest(BaseModel):
     message: str
 
 @app.post("/chat/")
 async def chat(request: ChatRequest):
-    headers = {"Authorization": f"Bearer {GROQ_API_KEY}"}
-    payload = {
-        "model": "llama-3.3-70b-versatile",  # Updated model name
-        "messages": [{"role": "user", "content": request.message}],
-        "temperature": 0.7,
-        "max_tokens": 500
-    }
-    
     try:
-        response = requests.post(API_URL, json=payload, headers=headers, timeout=10)
-        response.raise_for_status()
-        return response.json()
+        # Call the LangChain chat model
+        response = chat_model.invoke([HumanMessage(content=request.message)])
+        
+        # Extract and return response
+        return {"response": response.content}
+    
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+

@@ -10,6 +10,9 @@ sse_starlette
 pydantic 
 requests 
 watchdog
+langchain
+groq
+langchain-groq
 
 
 
