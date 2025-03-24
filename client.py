@@ -3,9 +3,11 @@ import requests
 
 API_URL = "https://chatbot-project-1-production.up.railway.app/chat/"  # Adjust if running FastAPI on a different host
 
-
-
-
+st.set_page_config(
+    page_title="Chatbot",  # Change this to your desired title
+    page_icon="⚡",  # You can use an emoji or a custom favicon URL
+    # layout="wide"
+)
 
 
 # Custom CSS for fixed title and margin adjustment
@@ -41,9 +43,6 @@ st.markdown(
 # ✅ Fixed Header with Margin
 st.markdown('<div class="fixed-title">🔥 LLAMA AI Chatbot 🔥</div>', unsafe_allow_html=True)
 
-
-
-# st.title("LLAMA AI Chatbot")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

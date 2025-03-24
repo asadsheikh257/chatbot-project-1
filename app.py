@@ -28,7 +28,7 @@ async def chat(request: ChatRequest):
         "model": "llama-3.3-70b-versatile",  # Updated model name
         "messages": [{"role": "user", "content": request.message}],
         "temperature": 0.7,
-        "max_tokens": 200
+        "max_tokens": 500
     }
     
     try:
